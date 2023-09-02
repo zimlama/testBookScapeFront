@@ -25,9 +25,11 @@ export default function LoginGoogle() {
                     credenciales
                 )
             });
+            console.log("esto es response:", response);
             const { payload } = decodeJwt(credentialResponse.credential)
             console.log("payload credential", payload);
             setNombre(payload.nombre);
+            console.log("esto es despues de response:", response);
         }
     }
 
