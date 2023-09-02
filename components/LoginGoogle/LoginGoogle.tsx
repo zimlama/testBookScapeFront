@@ -24,9 +24,7 @@ export default function LoginGoogle() {
                 body: JSON.stringify (
                     payload
                 )
-                console.log("esto es payload: ", payload);
             });
-            console.log("esto es payload: ", payload);
             console.log("esto es response: ", response);
         }
     }
