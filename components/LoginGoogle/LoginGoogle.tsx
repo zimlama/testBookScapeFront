@@ -18,7 +18,8 @@ export default function LoginGoogle() {
                 token: credentialResponse.credential
             }
             const { payload } = decodeJwt(credentialResponse.credential)
-            setNombre(payload.nombre);
+            setNombre(payload.email);
+            console.log("esto es payload.email: ", payload.email);
             const response = await fetch(`${bookscapeback}/users/googleloggin`, {
                 method: "POST",
                 body: JSON.stringify (
