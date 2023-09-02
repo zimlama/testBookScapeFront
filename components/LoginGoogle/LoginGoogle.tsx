@@ -13,25 +13,20 @@ export default function LoginGoogle() {
     }
 
     async function handleSuccess(credentialResponse: CredentialResponse) {
-        console.log("credentialResponse", credentialResponse);
         if (credentialResponse.credential) {
             const credenciales = {
                 token: credentialResponse.credential
             }
-            console.log("const credenciales:", credenciales);
             const { payload } = decodeJwt(credentialResponse.credential)
-            console.log("payload credential", payload);
             setNombre(payload.nombre);
-            console.log("esto es payload.nombre", payload.nombre);
             const response = await fetch(`${bookscapeback}/users/googleloggin`, {
                 method: "POST",
                 body: JSON.stringify (
-                    credenciales
+                    payload
                 )
             });
-            console.log("esto es response:", response);
-            
-            console.log("esto es despues de response:", response);
+            console.log("esto es payload: ", payload);
+            console.log("esto es response: ", response);
         }
     }
 
