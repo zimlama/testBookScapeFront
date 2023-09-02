@@ -117,7 +117,6 @@ export const FilterProvider: React.FC<FilterProviderProps> = ({ children }) => {
   const fetchLanguages = async () => {
     try {
       const response = await axios.get(languageUrl);
-      console.log("esto es: ", response);
       const languages = response.data.map((language: Language) => language.language);
       setUniqueLanguages(languages);
     } catch (error) {
